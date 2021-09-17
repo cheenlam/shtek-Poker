@@ -244,6 +244,10 @@ img {
   color: #fff;
 }
 
+.gameBody .gameInfo .msg .timer span {
+  font-size: 32px;
+}
+
 .gameBody .gameInfo .msg .illustrate {
   line-height: 22px;
 }
@@ -395,46 +399,70 @@ img {
   position: absolute;
   top: 40px;
   right: 20px;
+  -webkit-transition: .1s;
+  transition: .1s;
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
 }
 
 .gameBody .cards .card_1 {
-  -webkit-animation: card_1 0.5s 0.2s forwards;
-          animation: card_1 0.5s 0.2s forwards;
+  -webkit-animation: card_1 0.5s 0.3s forwards;
+          animation: card_1 0.5s 0.3s forwards;
 }
 
 .gameBody .cards .card_2 {
-  -webkit-animation: card_2 0.5s 0.4s forwards;
-          animation: card_2 0.5s 0.4s forwards;
+  -webkit-animation: card_2 0.5s 0.6s forwards;
+          animation: card_2 0.5s 0.6s forwards;
 }
 
 .gameBody .cards .card_3 {
-  -webkit-animation: card_3 0.5s 0.6s forwards;
-          animation: card_3 0.5s 0.6s forwards;
+  -webkit-animation: card_3 0.5s 0.9s forwards;
+          animation: card_3 0.5s 0.9s forwards;
 }
 
 .gameBody .cards .card_4 {
-  -webkit-animation: card_4 0.5s 0.8s forwards;
-          animation: card_4 0.5s 0.8s forwards;
+  -webkit-animation: card_4 0.5s 1.2s forwards;
+          animation: card_4 0.5s 1.2s forwards;
 }
 
 .gameBody .cards .card_5 {
-  -webkit-animation: card_5 0.5s 1s forwards;
-          animation: card_5 0.5s 1s forwards;
+  -webkit-animation: card_5 0.5s 1.5s forwards;
+          animation: card_5 0.5s 1.5s forwards;
 }
 
 .gameBody .cards .card_6 {
-  -webkit-animation: card_6 0.5s 1.2s forwards;
-          animation: card_6 0.5s 1.2s forwards;
+  -webkit-animation: card_6 0.5s 1.8s forwards;
+          animation: card_6 0.5s 1.8s forwards;
 }
 
 .gameBody .cards .card_7 {
-  -webkit-animation: card_7 0.5s 1.4s forwards;
-          animation: card_7 0.5s 1.4s forwards;
+  -webkit-animation: card_7 0.5s 2.1s forwards;
+          animation: card_7 0.5s 2.1s forwards;
 }
 
 .gameBody .cards .card_8 {
-  -webkit-animation: card_8 0.5s 1.6s forwards;
-          animation: card_8 0.5s 1.6s forwards;
+  -webkit-animation: card_8 0.5s 2.4s forwards;
+          animation: card_8 0.5s 2.4s forwards;
+}
+
+.gameBody .cards .card_2.on {
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+}
+
+.gameBody .cards .card_4.on {
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+}
+
+.gameBody .cards .card_6.on {
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+}
+
+.gameBody .cards .card_8.on {
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
 }
 
 @-webkit-keyframes card_1 {

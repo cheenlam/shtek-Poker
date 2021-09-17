@@ -26,7 +26,7 @@
         <div class="gameBody">
             <!-- gameTitle start -->
             <div class="gameTitle">
-                <div class="logo">
+                <div class="logo" @click="convert()">
                     <img src="images/other/logo.png">
                 </div>
                 <div class="theme">
@@ -112,27 +112,27 @@
             <!-- cards start -->
             <div class="cards">
                 <div class="card_1">
-                    <img src="images/card/card_4.png">
+                    <img src="images/card/card_1.png">
                 </div>
-                <div class="card_2">
+                <div class="card_2" :class="{'on':chCard}">
                     <img src="images/card/card_back.png">
                 </div>
                 <div class="card_3">
-                    <img src="images/card/card_3.png">
+                    <img src="images/card/card_5.png">
                 </div>
-                <div class="card_4">
+                <div class="card_4" :class="{'on':chCard}">
                     <img src="images/card/card_back.png">
                 </div>
                 <div class="card_5">
-                    <img src="images/card/card_10.png">
+                    <img src="images/card/card_6.png">
                 </div>
-                <div class="card_6">
+                <div class="card_6" :class="{'on':chCard}">
                     <img src="images/card/card_back.png">
                 </div>
                 <div class="card_7">
-                    <img src="images/card/card_2.png">
+                    <img src="images/card/card_8.png">
                 </div>
-                <div class="card_8">
+                <div class="card_8" :class="{'on':chCard}">
                     <img src="images/card/card_back.png">
                 </div>
             </div>
@@ -379,6 +379,7 @@
             data() {
                 return {
                     result: data,
+                    chCard:false
                 };
             },
             methods: {
@@ -397,6 +398,23 @@
                     }else{
                         return 'tie'
                     }
+                },
+                convert(){
+                    let self = this;
+                    let c2 = document.querySelector('.card_2 img');
+                    let c4 = document.querySelector('.card_4 img');
+                    let c6 = document.querySelector('.card_6 img');
+                    let c8 = document.querySelector('.card_8 img');
+                    self.chCard = true;
+                    
+                    c2.setAttribute('src',`images/card/card_${self.result[0].dealer.c2}.png`);
+                    c4.setAttribute('src',`images/card/card_${self.result[0].p1.c2}.png`);
+                    c6.setAttribute('src',`images/card/card_${self.result[0].p2.c2}.png`);
+                    c8.setAttribute('src',`images/card/card_${self.result[0].p3.c2}.png`);
+
+                    setTimeout(function(){
+                        self.chCard = false;
+                    },200)  
                 }
             },
             mounted() {},
