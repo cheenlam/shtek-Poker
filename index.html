@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="scss/all.css">
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>Poker game</title>
+</head>
+
+<body>
+    <div class="gameBox" id="gameBox">
+
+        <!-- ====== header start ====== -->
+        <div class="header">
+            <div class="content">
+                <div class="logo">
+                    <img src="images/other/logo.png">
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== gameBody start ====== -->
+        <div class="gameBody">
+            <!-- gameTitle start -->
+            <div class="gameTitle">
+                <div class="logo">
+                    <img src="images/other/logo.png">
+                </div>
+                <div class="theme">
+                    <img src="images/other/title.png">
+                </div>
+                <div class="guide_btn">
+                    <img src="images/btn/guide.png">
+                </div>
+            </div>
+
+            <!-- gameInfo start -->
+            <div class="gameInfo">
+                <div class="msg">
+                    <p class="session"><span>744</span>회차</p>
+                    <p class="timer">남은시간 <span>17</span> 초</p>
+                    <div class="illustrate">
+                        <ul>
+                            <li>슈렉섯다는 1분마다 게임이 진행됩니다</li>
+                            <li>딜러를 이길 것 같은 캐릭터에 배팅 해주세요</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dealer"></div>
+            </div>
+
+            <!-- playList start -->
+            <div class="playList">
+                <div class="player player_1">
+                    <div class="avatar">
+                        <div class="winner"></div>
+                        <img src="images/player/player1.png">
+                    </div>
+                </div>
+                <div class="player player_2">
+                    <div class="avatar">
+                        <div class="winner"></div>
+                        <img src="images/player/player2.png">
+                    </div>
+                </div>
+                <div class="player player_3">
+                    <div class="avatar">
+                        <div class="winner"></div>
+                        <img src="images/player/player3.png">
+                    </div>
+                </div>
+            </div>
+
+            <!-- result start -->
+            <div class="result">
+                <div class="list">
+                    <ul>
+                        <li v-for="(item,index) in result">
+                            <p class="session">{{item.session}}</p>
+                            <div class="resultData">
+                                <p data-name="딜러 :">
+                                    <span class="number">{{item.dealer.c1}}/{{item.dealer.c2}}</span>
+                                    <span class="total" v-html="reTotal(item.dealer.c1,item.dealer.c2)"></span>
+                                </p>
+                                <p data-name="슈렉 :">
+                                    <span class="number">{{item.p1.c1}}/{{item.p1.c2}}</span>
+                                    <span class="total" v-html="reTotal(item.p1.c1,item.p1.c2)"></span>
+                                    <span class="judge" 
+                                    :class="judge(item.dealer,item.p1)"></span>
+                                </p>
+                                <p data-name="피오나 :">
+                                    <span class="number">{{item.p2.c1}}/{{item.p2.c2}}</span>
+                                    <span class="total" v-html="reTotal(item.p2.c1,item.p2.c2)"></span>
+                                    <span class="judge" 
+                                    :class="judge(item.dealer,item.p2)"></span>
+                                </p>
+                                <p data-name="냥이 :">
+                                    <span class="number">{{item.p3.c1}}/{{item.p3.c2}}</span>
+                                    <span class="total" v-html="reTotal(item.p3.c1,item.p3.c2)"></span>
+                                    <span class="judge" 
+                                    :class="judge(item.dealer,item.p3)"></span>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- cards start -->
+            <div class="cards">
+                <div class="card_1">
+                    <img src="images/card/card_4.png">
+                </div>
+                <div class="card_2">
+                    <img src="images/card/card_back.png">
+                </div>
+                <div class="card_3">
+                    <img src="images/card/card_3.png">
+                </div>
+                <div class="card_4">
+                    <img src="images/card/card_back.png">
+                </div>
+                <div class="card_5">
+                    <img src="images/card/card_10.png">
+                </div>
+                <div class="card_6">
+                    <img src="images/card/card_back.png">
+                </div>
+                <div class="card_7">
+                    <img src="images/card/card_2.png">
+                </div>
+                <div class="card_8">
+                    <img src="images/card/card_back.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var data = [
+            {
+            session: 857,
+            dealer: {
+                c1: 1,
+                c2: 5
+            },
+            p1: {
+                c1: 5,
+                c2: 1
+            },
+            p2: {
+                c1: 6,
+                c2: 6
+            },
+            p3: {
+                c1: 8,
+                c2: 2
+            }
+        },
+        {
+            session: 858,
+            dealer: {
+                c1: 1,
+                c2: 8
+            },
+            p1: {
+                c1: 4,
+                c2: 4
+            },
+            p2: {
+                c1: 5,
+                c2: 6
+            },
+            p3: {
+                c1: 7,
+                c2: 5
+            }
+        },
+        {
+            session: 859,
+            dealer: {
+                c1: 8,
+                c2: 5
+            },
+            p1: {
+                c1: 9,
+                c2: 1
+            },
+            p2: {
+                c1: 8,
+                c2: 2
+            },
+            p3: {
+                c1: 10,
+                c2: 2
+            }
+        },
+        {
+            session: 857,
+            dealer: {
+                c1: 1,
+                c2: 5
+            },
+            p1: {
+                c1: 5,
+                c2: 1
+            },
+            p2: {
+                c1: 6,
+                c2: 6
+            },
+            p3: {
+                c1: 8,
+                c2: 2
+            }
+        },
+        {
+            session: 858,
+            dealer: {
+                c1: 1,
+                c2: 8
+            },
+            p1: {
+                c1: 4,
+                c2: 4
+            },
+            p2: {
+                c1: 5,
+                c2: 6
+            },
+            p3: {
+                c1: 7,
+                c2: 5
+            }
+        },
+        {
+            session: 859,
+            dealer: {
+                c1: 8,
+                c2: 5
+            },
+            p1: {
+                c1: 9,
+                c2: 1
+            },
+            p2: {
+                c1: 8,
+                c2: 2
+            },
+            p3: {
+                c1: 10,
+                c2: 2
+            }
+        },
+        {
+            session: 857,
+            dealer: {
+                c1: 1,
+                c2: 5
+            },
+            p1: {
+                c1: 5,
+                c2: 1
+            },
+            p2: {
+                c1: 6,
+                c2: 6
+            },
+            p3: {
+                c1: 8,
+                c2: 2
+            }
+        },
+        {
+            session: 858,
+            dealer: {
+                c1: 1,
+                c2: 8
+            },
+            p1: {
+                c1: 4,
+                c2: 4
+            },
+            p2: {
+                c1: 5,
+                c2: 6
+            },
+            p3: {
+                c1: 7,
+                c2: 5
+            }
+        },
+        {
+            session: 859,
+            dealer: {
+                c1: 8,
+                c2: 5
+            },
+            p1: {
+                c1: 9,
+                c2: 1
+            },
+            p2: {
+                c1: 8,
+                c2: 2
+            },
+            p3: {
+                c1: 10,
+                c2: 2
+            }
+        },
+        {
+            session: 857,
+            dealer: {
+                c1: 1,
+                c2: 5
+            },
+            p1: {
+                c1: 5,
+                c2: 1
+            },
+            p2: {
+                c1: 6,
+                c2: 6
+            },
+            p3: {
+                c1: 8,
+                c2: 2
+            }
+        },
+        {
+            session: 858,
+            dealer: {
+                c1: 1,
+                c2: 8
+            },
+            p1: {
+                c1: 4,
+                c2: 4
+            },
+            p2: {
+                c1: 5,
+                c2: 6
+            },
+            p3: {
+                c1: 7,
+                c2: 5
+            }
+        },
+        {
+            session: 859,
+            dealer: {
+                c1: 8,
+                c2: 5
+            },
+            p1: {
+                c1: 9,
+                c2: 1
+            },
+            p2: {
+                c1: 8,
+                c2: 2
+            },
+            p3: {
+                c1: 10,
+                c2: 2
+            }
+        },
+    
+    ]
+    </script>
+
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    result: data,
+                };
+            },
+            methods: {
+                reTotal(c1, c2) {
+                    let num = (c1 + c2) % 10;
+                    return num == 0 ? '' : num;
+                },
+                judge(dealer, player) {
+                    let judge;
+                    let dealerNum = (dealer.c1 + dealer.c2) % 10 == 0 ? 10 : (dealer.c1 + dealer.c2) % 10
+                    let playNum = (player.c1 + player.c2) % 10 == 0 ? 10 : (player.c1 + player.c2) % 10;
+                    if(playNum > dealerNum){
+                        return 'win'
+                    }else if(playNum < dealerNum){
+                        return 'lose'
+                    }else{
+                        return 'tie'
+                    }
+                }
+            },
+            mounted() {},
+        }).mount("#gameBox");
+    </script>
+</body>
+
+</html>

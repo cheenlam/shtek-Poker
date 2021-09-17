@@ -1,0 +1,583 @@
+@charset "UTF-8";
+html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6, th {
+  font-weight: normal;
+}
+
+a, a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+* {
+  font-family: 'Helvetica', sans-serif;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-text-size-adjust: none;
+}
+
+*:hover, *:focus, *:active {
+  outline: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+tt, em {
+  font-family: 'Helvetica', sans-serif;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button,
+input[type="button"],
+input[type="text"],
+input[type="number"],
+textarea {
+  outline: none;
+  font-family: 'Helvetica', sans-serif;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+input::-ms-reveal {
+  display: none;
+}
+
+input[type="password"]::-webkit-textfield-decoration-container {
+  visibility: hidden;
+}
+
+.nofloat:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/* ::-webkit-scrollbar{ 
+	width:10px;
+	height: 10px;
+	background-color:#f1f1f1;
+} */
+::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border: 3px #f1f1f1 solid;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-transition: background .5s linear;
+  transition: background .5s linear;
+}
+
+*:hover::-webkit-scrollbar-thumb {
+  background-color: #a9a9a9;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: #f1f1f1;
+}
+
+img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+body {
+  font-family: "Noto Sans Korean";
+  background-color: #202211;
+}
+
+img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+.gameBox {
+  padding-bottom: 100px;
+}
+
+.header {
+  width: 100%;
+  height: 130px;
+  background: #000508 url(../images/other/head.jpg) no-repeat center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0 4px 5px rgba(0, 0, 0, 0.8);
+          box-shadow: 0 4px 5px rgba(0, 0, 0, 0.8);
+  position: relative;
+  z-index: 1;
+}
+
+.header .content {
+  width: 100%;
+  max-width: 1280px;
+  padding: 0 20px;
+  margin: auto;
+}
+
+.header .logo {
+  width: 180px;
+}
+
+.gameBody {
+  width: 100%;
+  width: 840px;
+  height: 896px;
+  margin: auto;
+  background: #000508 url(../images/other/body.jpg);
+  position: relative;
+}
+
+.gameBody .gameTitle {
+  margin-bottom: 10px;
+  padding: 15px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+.gameBody .gameTitle .logo {
+  width: 13%;
+  position: absolute;
+  position: absolute;
+  top: 25px;
+  left: 25px;
+}
+
+.gameBody .gameTitle .theme {
+  width: 38%;
+}
+
+.gameBody .gameTitle .guide_btn {
+  width: 50px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  position: absolute;
+  top: 0;
+  bottom: 20px;
+  right: 40px;
+  cursor: pointer;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  z-index: 1;
+}
+
+@media (any-hover: hover) {
+  .gameBody .gameTitle .guide_btn:hover {
+    opacity: 0.6;
+  }
+}
+
+.gameBody .gameInfo {
+  margin-bottom: 45px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.gameBody .gameInfo .msg {
+  margin-right: 40px;
+  font-weight: 550;
+  text-align: right;
+  font-size: 15px;
+  color: #e0c3aa;
+}
+
+.gameBody .gameInfo .msg .session {
+  margin-bottom: 5px;
+  font-size: 23px;
+  color: #fff93b;
+}
+
+.gameBody .gameInfo .msg .timer {
+  margin-bottom: 5px;
+  font-size: 28px;
+  color: #fff;
+}
+
+.gameBody .gameInfo .msg .illustrate {
+  line-height: 22px;
+}
+
+.gameBody .gameInfo .dealer {
+  width: 346px;
+  height: 150px;
+  background: url(../images/player/dealer.png) no-repeat center/cover;
+}
+
+.gameBody .playList {
+  padding: 0 15px;
+  height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.gameBody .playList .player {
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.gameBody .playList .player .avatar {
+  width: 161px;
+  margin: auto;
+}
+
+.gameBody .playList .player .winner {
+  width: 40px;
+  height: 45px;
+  margin: auto;
+  background: url(../images/other/win.png) no-repeat center/cover;
+  position: absolute;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  right: 155px;
+}
+
+.gameBody .result {
+  width: calc(100% - 30px);
+  margin: 60px auto 0;
+  padding: 20px;
+  background: #1a140e;
+}
+
+.gameBody .result .list {
+  overflow-x: scroll;
+}
+
+.gameBody .result .list ul {
+  padding-bottom: 15px;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.gameBody .result .list li {
+  width: 150px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  font-weight: 550;
+  padding: 5px 10px;
+  position: relative;
+}
+
+.gameBody .result .list li + li::before {
+  content: '';
+  width: 1px;
+  height: 100%;
+  background-color: #413529;
+  position: absolute;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.gameBody .result .list .session {
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: #ffcf4c;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.gameBody .result .list .session::after {
+  content: '회차';
+}
+
+.gameBody .result .list .resultData {
+  font-size: 13px;
+  color: #e0c3aa;
+  line-height: 18px;
+}
+
+.gameBody .result .list .resultData p::before {
+  content: attr(data-name);
+  margin-right: 2px;
+}
+
+.gameBody .result .list .resultData span {
+  letter-spacing: 0.5px;
+}
+
+.gameBody .result .list .resultData span + span {
+  margin-left: 3px;
+}
+
+.gameBody .result .list .resultData .total {
+  color: #fff;
+}
+
+.gameBody .result .list .resultData .total::after {
+  content: '끗';
+}
+
+.gameBody .result .list .resultData .judge.win {
+  color: #c1d62e;
+}
+
+.gameBody .result .list .resultData .judge.win::before {
+  content: '(승)';
+}
+
+.gameBody .result .list .resultData .judge.lose {
+  color: #ff4046;
+}
+
+.gameBody .result .list .resultData .judge.lose::before {
+  content: '(패)';
+}
+
+.gameBody .result .list .resultData .judge.tie {
+  color: #5299f1;
+}
+
+.gameBody .result .list .resultData .judge.tie::before {
+  content: '(무)';
+}
+
+.gameBody .cards > div {
+  width: 84px;
+  opacity: 0;
+  position: absolute;
+  position: absolute;
+  top: 40px;
+  right: 20px;
+}
+
+.gameBody .cards .card_1 {
+  -webkit-animation: card_1 0.5s 0.2s forwards;
+          animation: card_1 0.5s 0.2s forwards;
+}
+
+.gameBody .cards .card_2 {
+  -webkit-animation: card_2 0.5s 0.4s forwards;
+          animation: card_2 0.5s 0.4s forwards;
+}
+
+.gameBody .cards .card_3 {
+  -webkit-animation: card_3 0.5s 0.6s forwards;
+          animation: card_3 0.5s 0.6s forwards;
+}
+
+.gameBody .cards .card_4 {
+  -webkit-animation: card_4 0.5s 0.8s forwards;
+          animation: card_4 0.5s 0.8s forwards;
+}
+
+.gameBody .cards .card_5 {
+  -webkit-animation: card_5 0.5s 1s forwards;
+          animation: card_5 0.5s 1s forwards;
+}
+
+.gameBody .cards .card_6 {
+  -webkit-animation: card_6 0.5s 1.2s forwards;
+          animation: card_6 0.5s 1.2s forwards;
+}
+
+.gameBody .cards .card_7 {
+  -webkit-animation: card_7 0.5s 1.4s forwards;
+          animation: card_7 0.5s 1.4s forwards;
+}
+
+.gameBody .cards .card_8 {
+  -webkit-animation: card_8 0.5s 1.6s forwards;
+          animation: card_8 0.5s 1.6s forwards;
+}
+
+@-webkit-keyframes card_1 {
+  100% {
+    position: absolute;
+    top: 222px;
+    right: 180px;
+    opacity: 1;
+  }
+}
+
+@keyframes card_1 {
+  100% {
+    position: absolute;
+    top: 222px;
+    right: 180px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes card_2 {
+  100% {
+    position: absolute;
+    top: 222px;
+    right: 90px;
+    opacity: 1;
+  }
+}
+
+@keyframes card_2 {
+  100% {
+    position: absolute;
+    top: 222px;
+    right: 90px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes card_3 {
+  100% {
+    position: absolute;
+    top: 490px;
+    right: 687px;
+    opacity: 1;
+  }
+}
+
+@keyframes card_3 {
+  100% {
+    position: absolute;
+    top: 490px;
+    right: 687px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes card_4 {
+  100% {
+    position: absolute;
+    top: 490px;
+    right: 596px;
+    opacity: 1;
+  }
+}
+
+@keyframes card_4 {
+  100% {
+    position: absolute;
+    top: 490px;
+    right: 596px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes card_5 {
+  100% {
+    position: absolute;
+    top: 490px;
+    right: 427px;
+    opacity: 1;
+  }
+}
+
+@keyframes card_5 {
+  100% {
+    position: absolute;
+    top: 490px;
+    right: 427px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes card_6 {
+  100% {
+    position: absolute;
+    top: 490px;
+    right: 337px;
+    opacity: 1;
+  }
+}
+
+@keyframes card_6 {
+  100% {
+    position: absolute;
+    top: 490px;
+    right: 337px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes card_7 {
+  100% {
+    position: absolute;
+    top: 490px;
+    right: 167px;
+    opacity: 1;
+  }
+}
+
+@keyframes card_7 {
+  100% {
+    position: absolute;
+    top: 490px;
+    right: 167px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes card_8 {
+  100% {
+    position: absolute;
+    top: 490px;
+    right: 77px;
+    opacity: 1;
+  }
+}
+
+@keyframes card_8 {
+  100% {
+    position: absolute;
+    top: 490px;
+    right: 77px;
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=all.css.map */

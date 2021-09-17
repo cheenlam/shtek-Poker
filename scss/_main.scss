@@ -1,0 +1,293 @@
+body {
+    font-family: "Noto Sans Korean";
+    background-color: #202211;
+}
+
+img {
+    width: 100%;
+    vertical-align: middle;
+}
+
+.gameBox {
+    padding-bottom: 100px;
+    // ====== header start ======
+    @at-root .header {
+        width: 100%;
+        height: 130px;
+        background: #000508 url(../images/other/head.jpg) no-repeat center;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.8);
+        position: relative;
+        z-index: 1;
+        .content {
+            width: 100%;
+            max-width: 1280px;
+            padding: 0 20px;
+            margin: auto;
+        }
+        .logo {
+            width: 180px;
+        }
+    }
+
+    // ====== gameBody start ======
+    @at-root .gameBody {
+        width: 100%;
+        width: 840px;
+        height: 896px;
+        margin: auto;
+        background: #000508 url(../images/other/body.jpg);
+        position: relative;
+
+        // gameTitle
+        .gameTitle {
+            margin-bottom: 10px;
+            padding: 15px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            .logo {
+                width: 13%;
+                position: absolute;
+                @include pos(tl, 25px);
+            }
+            .theme {
+                width: 38%;
+            }
+            .guide_btn {
+                width: 50px;
+                margin: auto;
+                display: flex;
+                align-items: center;
+                position: absolute;
+                @include pos(tbr, 0, 20px, 40px);
+                cursor: pointer;
+                transition: opacity 0.5s;
+                z-index: 1;
+                @include hover {
+                    &:hover {
+                        opacity: 0.6;
+                    }
+                }
+            }
+        }
+
+        // gameInfo start
+        .gameInfo {
+            margin-bottom: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .msg {
+                margin-right: 40px;
+                font-weight: 550;
+                text-align: right;
+                font-size: 15px;
+                color: #e0c3aa;
+                .session {
+                    margin-bottom: 5px;
+                    font-size: 23px;
+                    color: #fff93b;
+                }
+                .timer {
+                    margin-bottom: 5px;
+                    font-size: 28px;
+                    color: #fff;
+                }
+                .illustrate {
+                    line-height: 22px;
+                }
+            }
+
+            .dealer {
+                width: 346px;
+                height: 150px;
+                background: url(../images/player/dealer.png) no-repeat center / cover;
+            }
+        }
+
+       
+
+        // playList start
+        .playList {
+            padding: 0 15px;
+            height: 200px;
+            display: flex;
+            .player {
+                position: relative;
+                flex: 1;
+                .avatar {
+                    width: 161px;
+                    margin: auto;
+                }
+                .winner{
+                    width: 40px;
+                    height: 45px;
+                    margin: auto;
+                    background: url(../images/other/win.png) no-repeat center /cover;
+                    position: absolute;
+                    @include pos(tlr,0px,0,155px)
+                }
+            }
+        }
+
+        // result start
+        .result {
+            width: calc(100% - 30px);
+            margin: 60px auto 0;
+            padding: 20px;
+            background: #1a140e;
+
+            .list {
+                overflow-x: scroll;
+                ul {
+                    padding-bottom: 15px;
+                    height: 100%;
+                    display: flex;
+                }
+                li {
+                    width: 150px;
+                    flex-shrink: 0;
+                    font-weight: 550;
+                    padding: 5px 10px;
+                    position: relative;
+                }
+
+                li+li::before{
+                    content: '';
+                    width: 1px;
+                    height: 100%;
+                    background-color: #413529;
+                    position: absolute;
+                    @include pos(tl,0);
+                }
+
+                .session {
+                    margin-bottom: 10px;
+                    font-size: 15px;
+                    color: #ffcf4c;
+                    font-size: 15px;
+                    letter-spacing: 1px;
+                    &::after{
+                        content: '회차';
+                    }
+                }
+                .resultData{
+                    font-size: 13px;
+                    color: #e0c3aa;
+                    line-height: 18px;
+                    p{
+                        &::before{
+                            content: attr(data-name);
+                            margin-right: 2px;
+                        }
+                    }
+                    span{
+                        letter-spacing: 0.5px;
+                    }
+                    span+span{
+                        margin-left: 3px;
+                    }   
+
+                    .total{
+                        color: #fff;
+                        &::after{
+                            content: '끗';
+                        }
+                    }
+                    .judge{
+                        &.win{
+                            color: #c1d62e;
+                            &::before{
+                                content: '(승)';
+                            }
+                        }
+    
+                        &.lose{
+                            color: #ff4046;
+                            &::before{
+                                content: '(패)';
+                            }
+                        }
+                        &.tie{
+                            color: #5299f1;
+                            &::before{
+                                content: '(무)';
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
+        // cards start
+        .cards{
+            &>div{
+                width: 84px;
+                opacity: 0;
+                position: absolute;
+                @include pos(tr,40px ,20px);
+            }
+            
+            @for $i from 1 through 8{
+                .card_#{$i}{
+                    animation: card_#{$i} .5s #{$i*.2s} forwards
+                }     
+            }     
+        }
+    }
+}
+
+@keyframes card_1{
+    100%{
+        @include pos(tr,222px ,180px);
+        opacity: 1;
+    }
+}
+@keyframes card_2{
+    100%{
+        @include pos(tr,222px ,90px);
+        opacity: 1;
+    }
+}
+@keyframes card_3{
+    100%{
+        @include pos(tr,490px ,687px);
+        opacity: 1;
+    }
+}
+@keyframes card_4{
+    100%{
+        @include pos(tr,490px ,596px);
+        opacity: 1;
+    }
+}
+@keyframes card_5{
+    100%{
+        @include pos(tr,490px ,427px);
+        opacity: 1;
+    }
+}
+@keyframes card_6{
+    100%{
+        @include pos(tr,490px ,337px);
+        opacity: 1;
+    }
+}
+@keyframes card_7{
+    100%{
+        @include pos(tr,490px ,167px);
+        opacity: 1;
+    }
+}
+@keyframes card_8{
+    100%{
+        @include pos(tr,490px ,77px);
+        opacity: 1;
+    }
+}
+
