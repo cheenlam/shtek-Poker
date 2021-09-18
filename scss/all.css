@@ -273,11 +273,6 @@ img {
           flex: 1;
 }
 
-.gameBody .playList .player .avatar {
-  width: 161px;
-  margin: auto;
-}
-
 .gameBody .playList .player .winner {
   width: 40px;
   height: 45px;
@@ -288,6 +283,55 @@ img {
   top: 0px;
   left: 0;
   right: 155px;
+}
+
+.gameBody .playList .player .avatar {
+  width: 161px;
+  margin: auto;
+}
+
+.gameBody .playList .player .result {
+  width: 194px;
+  height: 67px;
+  margin: auto;
+  font-size: 30px;
+  color: #FFF;
+  text-shadow: 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609;
+  border: 3px solid #232609;
+  border-radius: 10px;
+  opacity: 0.86;
+  z-index: 2;
+  position: absolute;
+  position: absolute;
+  left: 28px;
+  bottom: -23px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #e0c3aa;
+}
+
+.gameBody .playList .player .result.win {
+  background-color: #c1d62e;
+}
+
+.gameBody .playList .player .result.lose {
+  background-color: #ff4046;
+}
+
+.gameBody .playList .player .result.tie {
+  background-color: #5299f1;
+}
+
+.gameBody .playList .player .result .number {
+  color: #fff;
+  margin-right: 5px;
 }
 
 .gameBody .result {
@@ -364,10 +408,6 @@ img {
   color: #fff;
 }
 
-.gameBody .result .list .resultData .total::after {
-  content: '끗';
-}
-
 .gameBody .result .list .resultData .judge.win {
   color: #c1d62e;
 }
@@ -405,62 +445,62 @@ img {
           transform-origin: top center;
 }
 
-.gameBody .cards .card_1 {
+.gameBody .cards.init .card_1 {
   -webkit-animation: card_1 0.5s 0.3s forwards;
           animation: card_1 0.5s 0.3s forwards;
 }
 
-.gameBody .cards .card_2 {
+.gameBody .cards.init .card_2 {
   -webkit-animation: card_2 0.5s 0.6s forwards;
           animation: card_2 0.5s 0.6s forwards;
 }
 
-.gameBody .cards .card_3 {
+.gameBody .cards.init .card_3 {
   -webkit-animation: card_3 0.5s 0.9s forwards;
           animation: card_3 0.5s 0.9s forwards;
 }
 
-.gameBody .cards .card_4 {
+.gameBody .cards.init .card_4 {
   -webkit-animation: card_4 0.5s 1.2s forwards;
           animation: card_4 0.5s 1.2s forwards;
 }
 
-.gameBody .cards .card_5 {
+.gameBody .cards.init .card_5 {
   -webkit-animation: card_5 0.5s 1.5s forwards;
           animation: card_5 0.5s 1.5s forwards;
 }
 
-.gameBody .cards .card_6 {
+.gameBody .cards.init .card_6 {
   -webkit-animation: card_6 0.5s 1.8s forwards;
           animation: card_6 0.5s 1.8s forwards;
 }
 
-.gameBody .cards .card_7 {
+.gameBody .cards.init .card_7 {
   -webkit-animation: card_7 0.5s 2.1s forwards;
           animation: card_7 0.5s 2.1s forwards;
 }
 
-.gameBody .cards .card_8 {
+.gameBody .cards.init .card_8 {
   -webkit-animation: card_8 0.5s 2.4s forwards;
           animation: card_8 0.5s 2.4s forwards;
 }
 
-.gameBody .cards .card_2.on {
+.gameBody .cards.init .card_2.on {
   -webkit-transform: scaleY(0);
           transform: scaleY(0);
 }
 
-.gameBody .cards .card_4.on {
+.gameBody .cards.init .card_4.on {
   -webkit-transform: scaleY(0);
           transform: scaleY(0);
 }
 
-.gameBody .cards .card_6.on {
+.gameBody .cards.init .card_6.on {
   -webkit-transform: scaleY(0);
           transform: scaleY(0);
 }
 
-.gameBody .cards .card_8.on {
+.gameBody .cards.init .card_8.on {
   -webkit-transform: scaleY(0);
           transform: scaleY(0);
 }
@@ -505,7 +545,7 @@ img {
   100% {
     position: absolute;
     top: 490px;
-    right: 687px;
+    right: 701px;
     opacity: 1;
   }
 }
@@ -514,7 +554,7 @@ img {
   100% {
     position: absolute;
     top: 490px;
-    right: 687px;
+    right: 701px;
     opacity: 1;
   }
 }
@@ -523,7 +563,7 @@ img {
   100% {
     position: absolute;
     top: 490px;
-    right: 596px;
+    right: 611px;
     opacity: 1;
   }
 }
@@ -532,7 +572,7 @@ img {
   100% {
     position: absolute;
     top: 490px;
-    right: 596px;
+    right: 611px;
     opacity: 1;
   }
 }
@@ -541,7 +581,7 @@ img {
   100% {
     position: absolute;
     top: 490px;
-    right: 427px;
+    right: 431px;
     opacity: 1;
   }
 }
@@ -550,7 +590,7 @@ img {
   100% {
     position: absolute;
     top: 490px;
-    right: 427px;
+    right: 431px;
     opacity: 1;
   }
 }
@@ -559,7 +599,7 @@ img {
   100% {
     position: absolute;
     top: 490px;
-    right: 337px;
+    right: 341px;
     opacity: 1;
   }
 }
@@ -568,7 +608,7 @@ img {
   100% {
     position: absolute;
     top: 490px;
-    right: 337px;
+    right: 341px;
     opacity: 1;
   }
 }
@@ -577,7 +617,7 @@ img {
   100% {
     position: absolute;
     top: 490px;
-    right: 167px;
+    right: 163px;
     opacity: 1;
   }
 }
@@ -586,7 +626,7 @@ img {
   100% {
     position: absolute;
     top: 490px;
-    right: 167px;
+    right: 163px;
     opacity: 1;
   }
 }
@@ -595,7 +635,7 @@ img {
   100% {
     position: absolute;
     top: 490px;
-    right: 77px;
+    right: 73px;
     opacity: 1;
   }
 }
@@ -604,7 +644,7 @@ img {
   100% {
     position: absolute;
     top: 490px;
-    right: 77px;
+    right: 73px;
     opacity: 1;
   }
 }

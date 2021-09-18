@@ -30,7 +30,6 @@ img {
             width: 180px;
         }
     }
-
     // ====== gameBody start ======
     @at-root .gameBody {
         width: 100%;
@@ -39,7 +38,6 @@ img {
         margin: auto;
         background: #000508 url(../images/other/body.jpg);
         position: relative;
-
         // gameTitle
         .gameTitle {
             margin-bottom: 10px;
@@ -73,14 +71,12 @@ img {
                 }
             }
         }
-
         // gameInfo start
         .gameInfo {
             margin-bottom: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
-
             .msg {
                 margin-right: 40px;
                 font-weight: 550;
@@ -96,7 +92,7 @@ img {
                     margin-bottom: 5px;
                     font-size: 28px;
                     color: #fff;
-                    span{
+                    span {
                         font-size: 32px;
                     }
                 }
@@ -104,16 +100,12 @@ img {
                     line-height: 22px;
                 }
             }
-
             .dealer {
                 width: 346px;
                 height: 150px;
                 background: url(../images/player/dealer.png) no-repeat center / cover;
             }
         }
-
-       
-
         // playList start
         .playList {
             padding: 0 15px;
@@ -122,20 +114,57 @@ img {
             .player {
                 position: relative;
                 flex: 1;
-                .avatar {
-                    width: 161px;
-                    margin: auto;
-                }
-                .winner{
+                .winner {
                     width: 40px;
                     height: 45px;
                     margin: auto;
                     background: url(../images/other/win.png) no-repeat center /cover;
                     position: absolute;
-                    @include pos(tlr,0px,0,155px)
+                    @include pos(tlr, 0px, 0, 155px)
+                }
+                .avatar {
+                    width: 161px;
+                    margin: auto;
+                }
+                .result {
+                    width: 194px;
+                    height: 67px;
+                    margin: auto;
+                    font-size: 30px;
+                    color: #FFF;
+                    text-shadow: 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609, 0 0 3px #232609;
+                    border: 3px solid #232609;
+                    border-radius: 10px;
+                    opacity: 0.86;
+                    z-index: 2;
+                    position: absolute;
+                    @include pos(lb,28px,-23px);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #e0c3aa;
+                    &.win {
+                       background-color: #c1d62e;
+                    }
+                    &.lose {
+                        background-color: #ff4046;
+                    }
+                    &.tie {
+                        background-color: #5299f1;
+                    }
+
+
+                    .number{
+                        color: #fff;
+                        margin-right: 5px;
+                    }
+
+
                 }
             }
         }
+
+        // fff93b黃
 
         // result start
         .result {
@@ -143,7 +172,6 @@ img {
             margin: 60px auto 0;
             padding: 20px;
             background: #1a140e;
-
             .list {
                 overflow-x: scroll;
                 ul {
@@ -158,148 +186,142 @@ img {
                     padding: 5px 10px;
                     position: relative;
                 }
-
-                li+li::before{
+                li+li::before {
                     content: '';
                     width: 1px;
                     height: 100%;
                     background-color: #413529;
                     position: absolute;
-                    @include pos(tl,0);
+                    @include pos(tl, 0);
                 }
-
                 .session {
                     margin-bottom: 10px;
                     font-size: 15px;
                     color: #ffcf4c;
                     font-size: 15px;
                     letter-spacing: 1px;
-                    &::after{
+                    &::after {
                         content: '회차';
                     }
                 }
-                .resultData{
+                .resultData {
                     font-size: 13px;
                     color: #e0c3aa;
                     line-height: 18px;
-                    p{
-                        &::before{
+                    p {
+                        &::before {
                             content: attr(data-name);
                             margin-right: 2px;
                         }
                     }
-                    span{
+                    span {
                         letter-spacing: 0.5px;
                     }
-                    span+span{
+                    span+span {
                         margin-left: 3px;
-                    }   
-
+                    }
                     .total{
                         color: #fff;
-                        &::after{
-                            content: '끗';
-                        }
                     }
-                    .judge{
-                        &.win{
+                    .judge {
+                        &.win {
                             color: #c1d62e;
-                            &::before{
+                            &::before {
                                 content: '(승)';
                             }
                         }
-    
-                        &.lose{
+                        &.lose {
                             color: #ff4046;
-                            &::before{
+                            &::before {
                                 content: '(패)';
                             }
                         }
-                        &.tie{
+                        &.tie {
                             color: #5299f1;
-                            &::before{
+                            &::before {
                                 content: '(무)';
                             }
                         }
-
                     }
                 }
             }
         }
-
         // cards start
-        .cards{
-            &>div{
+        .cards {
+            &>div {
                 width: 84px;
                 opacity: 0;
                 position: absolute;
-                @include pos(tr,40px ,20px);
+                @include pos(tr, 40px, 20px);
                 transition: .1s;
                 transform-origin: top center;
             }
-            
-            @for $i from 1 through 8{
-                .card_#{$i}{
+            @for $i from 1 through 8 {
+                &.init .card_#{$i} {
                     animation: card_#{$i} .5s #{$i*.3s} forwards;
-                }     
-            } 
-            
-            @for $i from 1 through 4{
-                .card_#{$i*2}.on{
+                }
+            }
+            @for $i from 1 through 4 {
+                &.init .card_#{$i*2}.on {
                     transform: scaleY(0)
                 }
             }
-            
         }
     }
 }
 
-@keyframes card_1{
-    100%{
-        @include pos(tr,222px ,180px);
-        opacity: 1;
-    }
-}
-@keyframes card_2{
-    100%{
-        @include pos(tr,222px ,90px);
-        opacity: 1;
-    }
-}
-@keyframes card_3{
-    100%{
-        @include pos(tr,490px ,687px);
-        opacity: 1;
-    }
-}
-@keyframes card_4{
-    100%{
-        @include pos(tr,490px ,596px);
-        opacity: 1;
-    }
-}
-@keyframes card_5{
-    100%{
-        @include pos(tr,490px ,427px);
-        opacity: 1;
-    }
-}
-@keyframes card_6{
-    100%{
-        @include pos(tr,490px ,337px);
-        opacity: 1;
-    }
-}
-@keyframes card_7{
-    100%{
-        @include pos(tr,490px ,167px);
-        opacity: 1;
-    }
-}
-@keyframes card_8{
-    100%{
-        @include pos(tr,490px ,77px);
+@keyframes card_1 {
+    100% {
+        @include pos(tr, 222px, 180px);
         opacity: 1;
     }
 }
 
+@keyframes card_2 {
+    100% {
+        @include pos(tr, 222px, 90px);
+        opacity: 1;
+    }
+}
+
+@keyframes card_3 {
+    100% {
+        @include pos(tr, 490px, 701px);
+        opacity: 1;
+    }
+}
+
+@keyframes card_4 {
+    100% {
+        @include pos(tr, 490px, 611px);
+        opacity: 1;
+    }
+}
+
+@keyframes card_5 {
+    100% {
+        @include pos(tr, 490px, 431px);
+        opacity: 1;
+    }
+}
+
+@keyframes card_6 {
+    100% {
+        @include pos(tr, 490px, 341px);
+        opacity: 1;
+    }
+}
+
+@keyframes card_7 {
+    100% {
+        @include pos(tr, 490px, 163px);
+        opacity: 1;
+    }
+}
+
+@keyframes card_8 {
+    100% {
+        @include pos(tr, 490px, 73px);
+        opacity: 1;
+    }
+}
