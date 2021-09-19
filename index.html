@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="scss/all.css">
     <script src="https://unpkg.com/vue@next"></script>
+    <script src="js/gameData.js"></script>
     <title>Poker game</title>
 </head>
 
@@ -32,7 +33,7 @@
                 <div class="theme">
                     <img src="images/other/title.png">
                 </div>
-                <div class="guide_btn">
+                <div class="guide_btn" @click="guide = true">
                     <img src="images/btn/guide.png">
                 </div>
             </div>
@@ -145,7 +146,50 @@
                     <img src="images/card/card_back.png">
                 </div>
             </div>
+
+             <!-- ===== guideBox start ====== -->
+            <div class="guideBox" :class="{'on' : guide}">
+                <div class="close"  @click="guide = false"></div>
+                <div class="top">
+                    <div class="title">
+                        <h5> 슈렉 섯다 게임설명</h5>
+                        <p>슈렉 섯다는 1분마다 새로운 게임이 진행됩니다.</p>
+                    </div>
+                    <div class="rule">
+                        <ul>
+                            <li>슈렉 섯다게임은 딜러를 상대로 슈렉, 피오나, 냥이 중 어느 플레이어가 이길지 맞히는 게임입니다.</li>
+                            <li>딜러의 패보다 어떤 플레이어의 패가 더 높을까요?</li>
+                        </ul>
+                    </div>
+                    <p class="exRule">예) 딜러 5끗 / 슈렉 5끗 / 피오나 1땡 / 냥이 2끗일 경우 <span>슈렉 (무) / 피오나 (승)</span> <tt>/ 냥이 (패)</tt>입니다.</p>
+                </div>
+
+                <div class="cardSort">
+                    <div class="title">슈렉 섯다 족보</div>
+                    <div class="rule">
+                        <ul>
+                            <li>족보는 두장의 화투패를 더한 값의 끝자리 순입니다.</li>
+                            <li>알리, 38광땡 등 일반적인 룰은 적용되지 않고 단순 끗과 땡만 존재합니다.</li>
+                            <li>게임에 사용되는 화투패의 전체 개수는 20장입니다. 좌측부터 패가 높은 순서입니다.</li>
+                        </ul>
+                    </div>
+
+                    <div class="cardList">
+                        <ul>
+                            <li v-for="item in cardList">
+                                <div class="cards">
+                                    <img :src="item.cardSrc[0]">
+                                    <img :src="item.cardSrc[01]">
+                                </div>
+                                <div class="fraction">{{item.fraction}}</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div> 
+            </div>
         </div>
+
+       
     </div>
 
 
@@ -378,6 +422,8 @@
                     result: data,
                     chCard: false,
                     start:false,
+                    guide:false,
+                    cardList:guideCards,
                 };
             },
             methods: {

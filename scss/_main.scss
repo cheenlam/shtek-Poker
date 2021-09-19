@@ -19,7 +19,7 @@ img {
         align-items: center;
         box-shadow: 0 4px 5px rgba(0, 0, 0, 0.8);
         position: relative;
-        z-index: 1;
+        z-index: 10;
         .content {
             width: 100%;
             max-width: 1280px;
@@ -138,13 +138,13 @@ img {
                     opacity: 0.86;
                     z-index: 2;
                     position: absolute;
-                    @include pos(lb,28px,-23px);
+                    @include pos(lb, 28px, -23px);
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     color: #e0c3aa;
                     &.win {
-                       background-color: #c1d62e;
+                        background-color: #c1d62e;
                     }
                     &.lose {
                         background-color: #ff4046;
@@ -152,20 +152,13 @@ img {
                     &.tie {
                         background-color: #5299f1;
                     }
-
-
-                    .number{
+                    .number {
                         color: #fff;
                         margin-right: 5px;
                     }
-
-
                 }
             }
         }
-
-        // fff93b黃
-
         // result start
         .result {
             width: calc(100% - 30px);
@@ -220,7 +213,7 @@ img {
                     span+span {
                         margin-left: 3px;
                     }
-                    .total{
+                    .total {
                         color: #fff;
                     }
                     .judge {
@@ -264,6 +257,118 @@ img {
             @for $i from 1 through 4 {
                 &.init .card_#{$i*2}.on {
                     transform: scaleY(0)
+                }
+            }
+        }
+        // ===== guideBox start ======
+        @at-root .guideBox {
+            width: 100%;
+            height: 100%;
+            padding: 30px 40px;
+            position: absolute;
+            @include pos(tl, 0);
+            background: rgba(36, 59, 0, 0.95);
+            font-weight: 550;
+            font-size: 15px;
+            z-index: -5;
+            opacity: 0;
+            transition: opacity .5s;
+            &.on{
+                z-index: 5;
+                opacity: 1; 
+            }
+            .close{
+                width: 42px;
+                height: 42px;
+                position: absolute;
+                cursor: pointer;
+                @include pos(tr,30px);
+                @include hover{
+                    &:hover::after,
+                    &:hover::before{
+                       background-color: #d2d2d2;
+                    }    
+                }
+                &:after,
+                &:before{
+                    content: '';
+                    width: 100%;
+                    height: 2px;
+                    margin: auto;
+                    background-color: #fff;
+                    transition: .3s;
+                    position: absolute;
+                    @include pos(tbrl,0);
+                   
+                }
+                &:after{
+                    transform: rotate(45deg);
+                }
+                &:before{
+                    transform: rotate(-45deg);
+                }
+            }
+
+            .top {
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+                border-bottom: 1px solid #4e4e4e;
+            }
+            .title {
+                margin-bottom: 10px;
+                color: #b2ff38;
+                h5 {
+                    margin-bottom: 10px;
+                    font-size: 30px;
+                }
+            }
+            .rule {
+                margin-bottom: 10px;
+                line-height: 25px;
+                color: #d2d2d2;
+            }
+            .exRule {
+                color: #fff;
+                span {
+                    color: #cdff63;
+                }
+                tt {
+                    color: #ff5858;
+                }
+            }
+            .cardSort {
+                .title {
+                    font-size: 22px;
+                    color: #b2ff38;
+                }
+                .rule {
+                    margin-bottom: 20px;
+                }
+            }
+            .cardList {
+                ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+                li {
+                    width: calc(100%/5);
+                    padding-bottom: 15px;
+                }
+                .cards {
+                    margin-bottom: 5px;
+                    display: flex;
+                    justify-content: center;
+                    img {
+                        width: 53px;
+                    }
+                    img+img {
+                        margin-left: 3px;
+                    }
+                }
+                .fraction {
+                    font-size: 17px;
+                    text-align: center;
+                    color: #d2d2d2;
                 }
             }
         }

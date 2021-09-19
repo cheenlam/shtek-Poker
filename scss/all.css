@@ -135,7 +135,7 @@ img {
   -webkit-box-shadow: 0 4px 5px rgba(0, 0, 0, 0.8);
           box-shadow: 0 4px 5px rgba(0, 0, 0, 0.8);
   position: relative;
-  z-index: 1;
+  z-index: 10;
 }
 
 .header .content {
@@ -503,6 +503,150 @@ img {
 .gameBody .cards.init .card_8.on {
   -webkit-transform: scaleY(0);
           transform: scaleY(0);
+}
+
+.guideBox {
+  width: 100%;
+  height: 100%;
+  padding: 30px 40px;
+  position: absolute;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(36, 59, 0, 0.95);
+  font-weight: 550;
+  font-size: 15px;
+  z-index: -5;
+  opacity: 0;
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+}
+
+.guideBox.on {
+  z-index: 5;
+  opacity: 1;
+}
+
+.guideBox .close {
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  cursor: pointer;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
+@media (any-hover: hover) {
+  .guideBox .close:hover::after, .guideBox .close:hover::before {
+    background-color: #d2d2d2;
+  }
+}
+
+.guideBox .close:after, .guideBox .close:before {
+  content: '';
+  width: 100%;
+  height: 2px;
+  margin: auto;
+  background-color: #fff;
+  -webkit-transition: .3s;
+  transition: .3s;
+  position: absolute;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.guideBox .close:after {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.guideBox .close:before {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.guideBox .top {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #4e4e4e;
+}
+
+.guideBox .title {
+  margin-bottom: 10px;
+  color: #b2ff38;
+}
+
+.guideBox .title h5 {
+  margin-bottom: 10px;
+  font-size: 30px;
+}
+
+.guideBox .rule {
+  margin-bottom: 10px;
+  line-height: 25px;
+  color: #d2d2d2;
+}
+
+.guideBox .exRule {
+  color: #fff;
+}
+
+.guideBox .exRule span {
+  color: #cdff63;
+}
+
+.guideBox .exRule tt {
+  color: #ff5858;
+}
+
+.guideBox .cardSort .title {
+  font-size: 22px;
+  color: #b2ff38;
+}
+
+.guideBox .cardSort .rule {
+  margin-bottom: 20px;
+}
+
+.guideBox .cardList ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.guideBox .cardList li {
+  width: calc(100%/5);
+  padding-bottom: 15px;
+}
+
+.guideBox .cardList .cards {
+  margin-bottom: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.guideBox .cardList .cards img {
+  width: 53px;
+}
+
+.guideBox .cardList .cards img + img {
+  margin-left: 3px;
+}
+
+.guideBox .cardList .fraction {
+  font-size: 17px;
+  text-align: center;
+  color: #d2d2d2;
 }
 
 @-webkit-keyframes card_1 {
