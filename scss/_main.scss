@@ -165,8 +165,17 @@ img {
             margin: 60px auto 0;
             padding: 20px;
             background: #1a140e;
+           
             .list {
                 overflow-x: scroll;
+                &::-webkit-scrollbar{
+                    height: 8px;
+                    border: none;
+                }
+                &::-webkit-scrollbar-thumb{
+                    background: linear-gradient(90deg,#535724,#999e5f,#535724);
+                    border: none;
+                }
                 ul {
                     padding-bottom: 15px;
                     height: 100%;

@@ -345,6 +345,17 @@ img {
   overflow-x: scroll;
 }
 
+.gameBody .result .list::-webkit-scrollbar {
+  height: 8px;
+  border: none;
+}
+
+.gameBody .result .list::-webkit-scrollbar-thumb {
+  background: -webkit-gradient(linear, left top, right top, from(#535724), color-stop(#999e5f), to(#535724));
+  background: linear-gradient(90deg, #535724, #999e5f, #535724);
+  border: none;
+}
+
 .gameBody .result .list ul {
   padding-bottom: 15px;
   height: 100%;
